@@ -1,21 +1,22 @@
 (ns webchange.core
   (:require
-    [cljsjs.material-ui]
-    [reagent.core :as reagent]
-    [re-frame.core :as re-frame]
-    [webchange.events :as events]
-    [webchange.views :as views]
-    [webchange.config :as config]
-    [webchange.routes :as routes]
-    [webchange.sw-utils.register :as sw]
-    [webchange.ui.theme :refer [with-mui-theme]]))
+   [cljsjs.material-ui]
+
+   [reagent.core :as reagent]
+   [re-frame.core :as re-frame]
+   [webchange.events :as events]
+   [webchange.views :as views]
+   [webchange.config :as config]
+   [webchange.routes :as routes]
+   [webchange.sw-utils.register :as sw]
+   [webchange.ui.theme :refer [with-mui-theme]]))
 
 (defn dev-setup []
   (when config/debug?
     (enable-console-print!)
     (println "dev mode")))
 
-(defn mount-root []
+(defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
   (reagent/render
     [with-mui-theme {:type "light"}

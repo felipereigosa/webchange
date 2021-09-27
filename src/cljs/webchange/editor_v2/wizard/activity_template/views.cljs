@@ -1,19 +1,19 @@
 (ns webchange.editor-v2.wizard.activity-template.views
   (:require
-    [cljs-react-material-ui.reagent :as ui]
-    [webchange.editor-v2.wizard.activity-template.utils :refer [check-conditions]]
-    [webchange.editor-v2.wizard.activity-template.question.views :refer [question-option]]
-    [webchange.editor-v2.wizard.activity-template.views-answers :refer [answers-option]]
-    [webchange.editor-v2.wizard.activity-template.views-characters :refer [characters-option]]
-    [webchange.editor-v2.wizard.activity-template.views-image :refer [image-option]]
-    [webchange.editor-v2.wizard.activity-template.views-lookup :refer [lookup-option]]
-    [webchange.editor-v2.wizard.activity-template.views-lookup-image :refer [lookup-image-option]]
-    [webchange.editor-v2.wizard.activity-template.views-pages :refer [pages-option]]
-    [webchange.editor-v2.wizard.activity-template.views-string :refer [string-option]]
-    [webchange.editor-v2.wizard.activity-template.views-strings-list :refer [strings-list-option]]
-    [webchange.editor-v2.wizard.activity-template.views-video :refer [video-option]]
-    [webchange.editor-v2.wizard.activity-template.views-video-ranges :refer [video-ranges-option]]
-    [webchange.editor-v2.wizard.activity-template.view_delete :refer [delete-object-option]]))
+   [cljs-react-material-ui.reagent :as ui]
+   [webchange.editor-v2.wizard.activity-template.utils :refer [check-conditions]]
+   [webchange.editor-v2.wizard.activity-template.question.views :refer [question-option]]
+   [webchange.editor-v2.wizard.activity-template.views-answers :refer [answers-option]]
+   [webchange.editor-v2.wizard.activity-template.views-characters :refer [characters-option]]
+   [webchange.editor-v2.wizard.activity-template.views-image :refer [image-option]]
+   [webchange.editor-v2.wizard.activity-template.views-lookup :refer [lookup-option]]
+   [webchange.editor-v2.wizard.activity-template.views-lookup-image :refer [lookup-image-option]]
+   [webchange.editor-v2.wizard.activity-template.views-pages :refer [pages-option]]
+   [webchange.editor-v2.wizard.activity-template.views-string :refer [string-option]]
+   [webchange.editor-v2.wizard.activity-template.views-strings-list :refer [strings-list-option]]
+   [webchange.editor-v2.wizard.activity-template.views-video :refer [video-option]]
+   [webchange.editor-v2.wizard.activity-template.views-video-ranges :refer [video-ranges-option]]
+   [webchange.editor-v2.wizard.activity-template.view-delete :refer [delete-object-option]]))
 
 (defn- undefined-option
   [{:keys [key option]}]
