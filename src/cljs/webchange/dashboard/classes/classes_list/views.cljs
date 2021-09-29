@@ -1,14 +1,15 @@
 (ns webchange.dashboard.classes.classes-list.views
   (:require
-    [cljs-react-material-ui.reagent :as ui]
-    [cljs-react-material-ui.icons :as ic]
-    [re-frame.core :as re-frame]
-    [reagent.core :as r]
-    [webchange.dashboard.classes.events :as classes-events]
-    [webchange.dashboard.classes.subs :as classes-subs]
-    [webchange.dashboard.events :as dashboard-events]
-    [webchange.dashboard.common.views :refer [content-page]]
-    [webchange.routes :refer [redirect-to]]))
+   [cljsjs.material-ui]
+   [cljs-react-material-ui.reagent :as ui]
+   [webchange.ui-framework.components.icon.index :as icon]
+   [re-frame.core :as re-frame]
+   [reagent.core :as r]
+   [webchange.dashboard.classes.events :as classes-events]
+   [webchange.dashboard.classes.subs :as classes-subs]
+   [webchange.dashboard.events :as dashboard-events]
+   [webchange.dashboard.common.views :refer [content-page]]
+   [webchange.routes :refer [redirect-to]]))
 
 (def fab (r/adapt-react-class (aget js/MaterialUI "Fab")))
 
@@ -40,16 +41,16 @@
                    :style {:white-space "nowrap"}}
     [ui/tooltip
      {:title (translate [:actions :students])}
-     [ui/icon-button {:on-click #(on-students-click class)} [ic/people]]]
+     [ui/icon-button {:on-click #(on-students-click class)} [icon/component {:icon "user"}]]]
     [ui/tooltip
      {:title (translate [:actions :profile])}
-     [ui/icon-button {:on-click #(on-profile-click class)} [ic/data-usage]]]
+     [ui/icon-button {:on-click #(on-profile-click class)} [icon/component {:icon "menu"}]]]
     [ui/tooltip
      {:title (translate [:actions :edit])}
-     [ui/icon-button {:on-click #(on-edit-click class)} [ic/create]]]
+     [ui/icon-button {:on-click #(on-edit-click class)} [icon/component {:icon "edit"}]]]
     [ui/tooltip
      {:title (translate [:actions :remove])}
-     [ui/icon-button {:on-click #(on-remove-click class)} [ic/delete]]]]])
+     [ui/icon-button {:on-click #(on-remove-click class)} [icon/component {:icon "remove"}]]]]])
 
 (defn- classes-list
   [props classes]
@@ -80,5 +81,5 @@
           :variant    "extended"
           :style      (:add-button styles)
           :aria-label (translate [:add-class :text])}
-         [ic/add]
+         [icon/component {:icon "add"}]
          (translate [:add-class :text])]]])))
