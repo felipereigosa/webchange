@@ -1,10 +1,10 @@
 (ns webchange.common.svg-path.path-to-transitions
   (:require
-    [clojure.edn :as edn]
-    [clojure.string :as s]
-    [webchange.common.svg-path.path-splitter :refer [split-path apply-path-to-point]]
-    [webchange.common.svg-path.path-element :refer [length]]
-    [svg-arc-to-cubic-bezier :as arcToBezier]))
+   [clojure.edn :as edn]
+   [clojure.string :as s]
+   [webchange.common.svg-path.path-splitter :refer [split-path apply-path-to-point]]
+   [webchange.common.svg-path.path-element :refer [length]]
+   ["svg-arc-to-cubic-bezier" :as arcToBezier]))
 
 (defn- apply-origin
   [{:keys [x y]} [path-type & coordinates]]
@@ -100,7 +100,7 @@
                            :xAxisRotation x-axis-rotation
                            :largeArcFlag large-arc-flag
                            :sweepFlag sweep-flag})
-          curves (->> params ((.-default arcToBezier)) (js->clj))]
+          curves (->> params (arcToBezier) (js->clj))]
       (map
         (fn [{x1 "x1" y1 "y1" x2 "x2" y2 "y2" x3 "x" y3 "y"}]
           {:bezier [{:x x1 :y y1} {:x x2 :y y2} {:x x3 :y y3}]})
